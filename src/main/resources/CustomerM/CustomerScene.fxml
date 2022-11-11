@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -20,12 +19,12 @@
   <children>
       <ImageView fitHeight="70.0" fitWidth="900.0">
          <image>
-            <Image url="@../../../../../../OneDrive/Pictures/Logo.PNG" />
+            <Image url="@../Misc/Logo.PNG" />
          </image>
       </ImageView>
     <SplitPane dividerPositions="0.2606856634016028, 0.6380231522707035" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane prefHeight="462.0" prefWidth="222.0">
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="300.0">
           <children>
             <Label alignment="CENTER" layoutX="81.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Pizza" textAlignment="CENTER" wrapText="false">
               <font>
@@ -55,36 +54,32 @@
                   </RadioButton>
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
-          <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="528.0" prefWidth="322.0">
-              <children>
-                <Label alignment="CENTER" font="$x1" layoutX="128.0" layoutY="14.0" style="&#10;" text="Toppings" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                        <CheckBox layoutX="97.0" layoutY="72.0" mnemonicParsing="false" onAction="#topMushroom" prefHeight="30.0" prefWidth="135.0" text="Mushroom">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox layoutX="97.0" layoutY="130.0" mnemonicParsing="false" onAction="#topOnion" prefHeight="30.0" prefWidth="135.0" text="Onions">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox layoutX="97.0" layoutY="191.0" mnemonicParsing="false" onAction="#topOlives" prefHeight="30.0" prefWidth="135.0" text="Olives">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox layoutX="97.0" layoutY="248.0" mnemonicParsing="false" onAction="#topExtraCheese" prefHeight="30.0" prefWidth="135.0" text="Extra cheese">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </CheckBox>
-              </children>
-            </AnchorPane>
-          </content>
-        </ScrollPane>
-        <AnchorPane prefHeight="551.0" prefWidth="317.0">
+      <AnchorPane id="Content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-1.0" minWidth="-1.0" prefHeight="530.0" prefWidth="300.0">
+        <children>
+          <Label alignment="CENTER" font="$x1" layoutX="128.0" layoutY="14.0" style="&#10;" text="Toppings" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <CheckBox layoutX="97.0" layoutY="72.0" mnemonicParsing="false" onAction="#topMushroom" prefHeight="30.0" prefWidth="135.0" text="Mushroom">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox layoutX="97.0" layoutY="130.0" mnemonicParsing="false" onAction="#topOnion" prefHeight="30.0" prefWidth="135.0" text="Onions">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox layoutX="97.0" layoutY="191.0" mnemonicParsing="false" onAction="#topOlives" prefHeight="30.0" prefWidth="135.0" text="Olives">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox layoutX="97.0" layoutY="248.0" mnemonicParsing="false" onAction="#topExtraCheese" prefHeight="30.0" prefWidth="135.0" text="Extra cheese">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+        </children>
+      </AnchorPane>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="300.0">
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="113.0" layoutY="14.0" style="&#10;" text="Pickup Time" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                   <DatePicker layoutX="75.0" layoutY="60.0" onAction="#pickTime" />
