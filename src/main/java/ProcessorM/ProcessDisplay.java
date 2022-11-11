@@ -17,7 +17,7 @@ public class ProcessDisplay {
 
     @FXML
     void acceptOrder(ActionEvent event) {
-        Stage mainWindow = (Stage) tfTitle.getScene().getWindow();
+
         
     }
 
