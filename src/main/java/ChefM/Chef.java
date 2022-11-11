@@ -3,7 +3,7 @@ import java.util.*;
 
 
 public enum orderStatus{ 
-    ORDER_STARTED, ORDER_COOKING, ORDER_READY
+    ORDER_RECEIVED, ORDER_COOKING, ORDER_READY
   }
 
 
