@@ -18,7 +18,8 @@ public class ProcessDisplay {
     @FXML
     void acceptOrder(ActionEvent event) {
 
-        
+
+
     }
 
 }

@@ -4,9 +4,8 @@ import java.util.Queue;
 
 import java.util.*;
 public class OrderProcessor {
-    //Instance Variables
 
-    Queue<Customer> CustomerList = new LinkedList<>();
+    private Queue<Customer> CustomerList = new LinkedList<>();
 
     public OrderProcessor() {
         CustomerList = null;

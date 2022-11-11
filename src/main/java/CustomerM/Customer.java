@@ -15,10 +15,10 @@ public class Customer {
         pizza = null;
 	}
 
-	public Customer(String ID/*, PizzaOrder order*/) {
+	public Customer(String ID, PizzaOrder order) {
 		asuID = ID;
 		asuEmail = ID + "@asu.edu";
-		//pizza = new PizzaOrder(order);
+		pizza = new PizzaOrder(order);
 	}
 
 	public String getID(){
@@ -30,7 +30,7 @@ public class Customer {
 	}
 
 	public PizzaOrder getOrder() {
-		return new PizzaOrder(pizza);
+		return pizza;
 	}
 
 

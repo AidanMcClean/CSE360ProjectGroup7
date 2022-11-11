@@ -41,7 +41,7 @@ public class CustomerDisplay {
 
     @FXML
     void topExtraCheese(ActionEvent event) {
-
+        
     }
 
     @FXML
