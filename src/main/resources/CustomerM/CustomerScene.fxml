@@ -8,12 +8,9 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<<<<<<< Updated upstream
 <?import javafx.scene.control.ToggleGroup?>
-=======
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
->>>>>>> Stashed changes
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -26,7 +23,7 @@
             <Image url="@../../../../../../OneDrive/Pictures/Logo.PNG" />
          </image>
       </ImageView>
-    <SplitPane dividerPositions="0.2606856634016028, 0.6380231522707035" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="900.0">
+    <SplitPane dividerPositions="0.2606856634016028, 0.6380231522707035" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane prefHeight="462.0" prefWidth="222.0">
           <children>
