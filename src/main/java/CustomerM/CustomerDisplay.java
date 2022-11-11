@@ -14,6 +14,7 @@ public class CustomerDisplay {
     private String pickupTime;
     private boolean acceptedStatus;
     private String cookStatus;
+    private String asuID;
 
     @FXML
     private Font x1;
@@ -40,12 +41,12 @@ public class CustomerDisplay {
 
     @FXML
     void asuID(ActionEvent event) {
-
+        asuID = " ";
     }
 
     @FXML
     void pickTime(ActionEvent event) {
-
+            
     }
 
     @FXML
