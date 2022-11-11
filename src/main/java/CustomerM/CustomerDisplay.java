@@ -1,5 +1,4 @@
-package pizzastuff;
-
+package CustomerM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
