@@ -3,6 +3,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.control.TextField;
 
 public class CustomerDisplay {
 
@@ -15,6 +16,8 @@ public class CustomerDisplay {
     private boolean acceptedStatus;
     private String cookStatus;
     private String asuID;
+    @FXML
+    private TextField iD;
 
     @FXML
     private Font x1;
@@ -36,12 +39,13 @@ public class CustomerDisplay {
 
     @FXML
     void CheckOut(ActionEvent event) {
-
+        System.out.println(asuID);
     }
 
     @FXML
     void asuID(ActionEvent event) {
-        asuID = " ";
+        asuID = iD.getText();
+
     }
 
     @FXML
