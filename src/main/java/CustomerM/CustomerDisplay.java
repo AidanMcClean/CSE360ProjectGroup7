@@ -6,6 +6,15 @@ import javafx.scene.text.Font;
 
 public class CustomerDisplay {
 
+    private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
+    private boolean mushroom;
+    private boolean onion;
+    private boolean olives;
+    private boolean extraCheese;
+    private String pickupTime;
+    private boolean acceptedStatus;
+    private String cookStatus;
+
     @FXML
     private Font x1;
 
@@ -41,37 +50,37 @@ public class CustomerDisplay {
 
     @FXML
     void topExtraCheese(ActionEvent event) {
-        
+        boolean extraCheese = true;
     }
 
     @FXML
     void topMushroom(ActionEvent event) {
-
+        boolean mushroom = true;
     }
 
     @FXML
     void topOlives(ActionEvent event) {
-
+        boolean olives = true;
     }
 
     @FXML
     void topOnion(ActionEvent event) {
-
+        boolean onion = true;
     }
 
     @FXML
     void typeCheese(ActionEvent event) {
-
+        pizzaType = 2;
     }
 
     @FXML
     void typePepperoni(ActionEvent event) {
-
+        pizzaType = 0;
     }
 
     @FXML
     void typeVeggie(ActionEvent event) {
-
+        pizzaType = 1;
     }
 
 }
