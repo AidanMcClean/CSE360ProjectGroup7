@@ -1,4 +1,5 @@
 package CustomerM;
+import PizzaOrder.PizzaOrder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
@@ -39,13 +40,10 @@ public class CustomerDisplay {
 
     @FXML
     void CheckOut(ActionEvent event) {
+        PizzaOrder pizzaOrder = new PizzaOrder(pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
+        Customer customerOrder = new Customer(asuID, pizzaOrder);
+        asuID = iD.getText(); //TODO CHECK THE ID
         System.out.println(asuID);
-    }
-
-    @FXML
-    void asuID(ActionEvent event) {
-        asuID = iD.getText();
-
     }
 
     @FXML
