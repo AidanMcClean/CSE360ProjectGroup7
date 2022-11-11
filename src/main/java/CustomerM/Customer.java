@@ -1,4 +1,5 @@
 package CustomerM;
+import PizzaOrder.PizzaOrder;
 
 import java.util.*;
 
@@ -6,12 +7,12 @@ public class Customer {
 	//Instance Variables
 	private String asuID;
 	private String asuEmail;
-	//private PizzaOrder pizza;
+	private PizzaOrder pizza;
 
 	public Customer() {
 		asuID = "";
         asuEmail = asuID + "@asu.edu";
-        //pizza = null;
+        pizza = null;
 	}
 
 	public Customer(String ID/*, PizzaOrder order*/) {
@@ -28,10 +29,9 @@ public class Customer {
 		return asuEmail;
 	}
 
-/*	public PizzaOrder getOrder() {
+	public PizzaOrder getOrder() {
 		return new PizzaOrder(pizza);
 	}
 
- */
 
 }
