@@ -21,8 +21,15 @@ public class OrderConnection
 
             statement.executeUpdate("CREATE TABLE PizzaOrder (PizzaNumber int NOT NULL, asuID varchar(255) NOT NULL, pizzatype int, mushroom boolean, onion boolean, olives boolean, extraCheese boolean, pickuptime varchar(5), acceptedStatus boolean, cookStatus varchar(255), PRIMARY KEY (PizzaNumber))");
 
-            statement.executeUpdate("INSERT INTO PizzaOrder VALUES(1, 1, 1, 1,1,1,1,'hi',1,'hi')");
+            statement.executeUpdate("INSERT INTO PizzaOrder VALUES(1, 1, 3, 4,5,1,1,'hi',1,'hi')"); //testing code
 
+            ResultSet rs = statement.executeQuery("select * from PizzaOrder");     //test
+            while(rs.next()) //testing while loop
+            {
+                // read the result set
+                System.out.println("name = " + rs.getString("pizzatype"));
+                System.out.println("id = " + rs.getInt("mushroom"));
+            }
         }
         catch(SQLException e)
         {
