@@ -7,9 +7,10 @@ import java.sql.Statement;
 
 public class OrderConnection
 {
-    public static void main(String[] args)
+    public static void connect()
     {
         Connection connection = null;
+
         try
         {
             // create a database connection
@@ -17,19 +18,6 @@ public class OrderConnection
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            statement.executeUpdate("drop table if exists PizzaOrder");
-
-            statement.executeUpdate("CREATE TABLE PizzaOrder (PizzaNumber int NOT NULL, asuID varchar(255) NOT NULL, pizzatype int, mushroom boolean, onion boolean, olives boolean, extraCheese boolean, pickuptime varchar(5), acceptedStatus boolean, cookStatus varchar(255), PRIMARY KEY (PizzaNumber))");
-
-            statement.executeUpdate("INSERT INTO PizzaOrder VALUES(1, 1, 3, 4,5,1,1,'hi',1,'hi')"); //testing code
-
-            ResultSet rs = statement.executeQuery("select * from PizzaOrder");     //test
-            while(rs.next()) //testing while loop
-            {
-                // read the result set
-                System.out.println("name = " + rs.getString("pizzatype"));
-                System.out.println("id = " + rs.getInt("mushroom"));
-            }
         }
         catch(SQLException e)
         {
