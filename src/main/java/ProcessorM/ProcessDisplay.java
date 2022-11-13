@@ -11,7 +11,6 @@ import java.util.Queue;
 
 public class ProcessDisplay {
 
-    public Queue<PizzaOrder> CustomerList = new LinkedList<>();
     @FXML
     private TextField tfTitle;
     private PizzaOrder currentcustomer = new PizzaOrder();
@@ -20,7 +19,6 @@ public class ProcessDisplay {
     @FXML
     void processOrder(ActionEvent event) {
 
-        currentcustomer = CustomerList.remove();
 
     }
 
