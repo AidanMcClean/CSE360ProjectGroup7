@@ -5,6 +5,9 @@ import java.util.*;
 public class PizzaOrder {
 
     //instance variables
+
+    private String asuID;
+    private String asuEmail;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
     private boolean mushroom;
     private boolean onion;
@@ -15,7 +18,8 @@ public class PizzaOrder {
     private String cookStatus;
 
     public PizzaOrder() {
-
+        asuID = "";
+        asuEmail = asuID + "@asu.edu";
         int pizzaType = 0; //0: pepperoni, 1: veggie, 2: cheese
         boolean mushroom = false;
         boolean onion = false;
@@ -26,8 +30,9 @@ public class PizzaOrder {
         String cookStatus = "";
     }
 
-    public PizzaOrder(int Type, boolean mushroomi, boolean onioni, boolean olivesi, boolean extraCheesei, String pickupTimei, boolean acceptedStatusi, String cookStatusi) {
-
+    public PizzaOrder(String asuIDi,int Type, boolean mushroomi, boolean onioni, boolean olivesi, boolean extraCheesei, String pickupTimei, boolean acceptedStatusi, String cookStatusi) {
+        asuID = asuIDi;
+        asuEmail = asuIDi + "@asu.edu";
         int pizzaType = Type; //0: pepperoni, 1: veggie, 2: cheese
         boolean mushroom = mushroomi;
         boolean onion = onioni;
@@ -50,7 +55,16 @@ public class PizzaOrder {
         return " ";
     }
 
+    public String getID(){
+        return asuID;
+    }
+
+    public String getEmail() {
+        return asuEmail;
+    }
+
     public PizzaOrder(PizzaOrder object) {
+        asuID = object.asuID;
         pizzaType = object.pizzaType;
         mushroom = object.mushroom;
         onion = object.onion;

@@ -15,10 +15,14 @@ import java.util.Stack;
 
 public class ProcessDisplay {
 
+<<<<<<< Updated upstream
     public Queue<Customer> CustomerList = new LinkedList<>();
+=======
+    private Queue<PizzaOrder> CustomerList = new LinkedList<>();
+>>>>>>> Stashed changes
     @FXML
     private TextField tfTitle;
-    private Customer currentcustomer = new Customer();
+    private PizzaOrder currentcustomer = new PizzaOrder();
 
 
     @FXML

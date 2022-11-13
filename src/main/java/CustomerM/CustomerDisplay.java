@@ -40,8 +40,7 @@ public class CustomerDisplay {
 
     @FXML
     void CheckOut(ActionEvent event) {
-        PizzaOrder pizzaOrder = new PizzaOrder(pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
-        Customer customerOrder = new Customer(asuID, pizzaOrder);
+        PizzaOrder customerOrder = new PizzaOrder(asuID, pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
         asuID = iD.getText(); //TODO CHECK THE ID
         System.out.println(asuID);
     }
