@@ -15,14 +15,14 @@ import java.util.Stack;
 
 public class ProcessDisplay {
 
-    private Queue<Customer> CustomerList = new LinkedList<>();
+    public Queue<Customer> CustomerList = new LinkedList<>();
     @FXML
     private TextField tfTitle;
     private Customer currentcustomer = new Customer();
 
 
     @FXML
-    void acceptOrder(ActionEvent event) {
+    void processOrder(ActionEvent event) {
 
         currentcustomer = CustomerList.remove();
 
