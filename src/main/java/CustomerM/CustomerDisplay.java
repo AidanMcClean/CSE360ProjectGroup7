@@ -9,12 +9,12 @@ import javafx.scene.control.TextField;
 public class CustomerDisplay {
 
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
-    private boolean mushroom;
-    private boolean onion;
-    private boolean olives;
-    private boolean extraCheese;
+    private boolean mushroom = false;
+    private boolean onion = false;
+    private boolean olives = false;
+    private boolean extraCheese = false;
     private String pickupTime;
-    private boolean acceptedStatus;
+    private boolean acceptedStatus = false;
     private String cookStatus;
     private String asuID;
     @FXML
@@ -53,22 +53,30 @@ public class CustomerDisplay {
 
     @FXML
     void topExtraCheese(ActionEvent event) {
-        boolean extraCheese = true;
+        if(extraCheese = false)
+            extraCheese = true;
+        else extraCheese = false;
     }
 
     @FXML
     void topMushroom(ActionEvent event) {
-        boolean mushroom = true;
+        if(mushroom = false)
+            mushroom = true;
+        else mushroom = false;
     }
 
     @FXML
     void topOlives(ActionEvent event) {
-        boolean olives = true;
+        if(olives = false)
+            olives = true;
+        else olives = false;
     }
 
     @FXML
     void topOnion(ActionEvent event) {
-        boolean onion = true;
+        if(onion = false)
+            onion = true;
+        else onion = false;
     }
 
     @FXML
