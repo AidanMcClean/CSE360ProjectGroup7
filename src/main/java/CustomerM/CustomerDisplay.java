@@ -43,6 +43,7 @@ public class CustomerDisplay {
         PizzaOrder customerOrder = new PizzaOrder(asuID, pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
         asuID = iD.getText(); //TODO CHECK THE ID
         System.out.println(asuID);
+        //store customerOrder in database
     }
 
     @FXML
