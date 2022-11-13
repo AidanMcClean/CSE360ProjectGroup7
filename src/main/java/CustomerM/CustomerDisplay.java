@@ -1,10 +1,13 @@
 package CustomerM;
 import PizzaOrder.PizzaOrder;
+import database.OrderConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
+
+import CustomerM.CustomerEX;
 
 public class CustomerDisplay {
 
@@ -44,6 +47,7 @@ public class CustomerDisplay {
         asuID = iD.getText(); //TODO CHECK THE ID
         System.out.println(asuID);
         //store customerOrder in database
+        OrderConnection.insertOrder(1, "testID", 1, false,false,false,false,"hi",false,"hi"); //test statement
     }
 
     @FXML
