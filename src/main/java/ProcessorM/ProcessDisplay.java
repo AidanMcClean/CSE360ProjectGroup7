@@ -28,13 +28,15 @@ public class ProcessDisplay {
        int a = OrderConnection.PizzaType(pizzaN);
        if(a == 0){
            type = "Pepperoni";
+           PizzaType.setText(type);
        } else if (a == 1) {
            type = "Veggie";
+           PizzaType.setText(type);
        } else if (a == 2) {
            type = "Cheese";
-       }
+           PizzaType.setText(type);
+       }else  System.out.println(");");
        OrderConnection.PrintDB();
-        PizzaType.setText(type);
         
     }
     @FXML

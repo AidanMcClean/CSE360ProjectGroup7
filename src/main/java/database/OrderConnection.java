@@ -59,7 +59,7 @@ public class OrderConnection {
     }
 
     public static void updateStatus(String cookStatus, int PizzaNumber){
-        final String SQL = "UPDATE PizzaOrder SET cookStatus = ? WHERE asuID = ?";
+        final String SQL = "UPDATE PizzaOrder SET cookStatus = ? WHERE PizzaNumber =?";
         try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
             ps.setString(1, cookStatus);
             ps.setInt(2, PizzaNumber);
@@ -89,14 +89,18 @@ public class OrderConnection {
         }
     }
     public static int PizzaType(int PizzaNumber) {
-        String sql = "SELECT PizzaType FROM PizzaOrder WHERE PizzaNumber = ?" ; //changable method to test stuff
-        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql);
-             Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
+        String sql = "SELECT pizzatype FROM PizzaOrder WHERE PizzaNumber =?" ; //changable method to test stuff
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            int a = 5;
+            System.out.println("nice");
             ps.setInt(1, PizzaNumber);
-            ps.executeUpdate();
-            return rs.getInt("PizzaType");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getInt("pizzatype"));
+                a = rs.getInt("pizzatype");
+            }
+            System.out.println(a);
+            return a;
 
 
         } catch (SQLException e) {
