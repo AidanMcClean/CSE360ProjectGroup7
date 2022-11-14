@@ -21,6 +21,8 @@ public class ProcessDisplay {
     private Label PizzaType;
     private int pizzaN = 1;
 
+
+
     public void labels(){
         String type = " ";
        int a = OrderConnection.PizzaType(pizzaN);
