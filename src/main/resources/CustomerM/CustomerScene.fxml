@@ -57,22 +57,22 @@
       <AnchorPane id="Content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-1.0" minWidth="-1.0" prefHeight="530.0" prefWidth="300.0">
         <children>
           <Label alignment="CENTER" font="$x1" layoutX="128.0" layoutY="14.0" style="&#10;" text="Toppings" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <CheckBox fx:id="Mushroombox" layoutX="97.0" layoutY="72.0" mnemonicParsing="false" onAction="#topMushroom" prefHeight="30.0" prefWidth="135.0" text="Mushroom">
+                  <CheckBox fx:id="mushroomBox" layoutX="97.0" layoutY="72.0" mnemonicParsing="false" onAction="#topMushroom" prefHeight="30.0" prefWidth="135.0" text="Mushroom">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="97.0" layoutY="130.0" mnemonicParsing="false" onAction="#topOnion" prefHeight="30.0" prefWidth="135.0" text="Onions">
+                  <CheckBox fx:id="onionBox" layoutX="97.0" layoutY="130.0" mnemonicParsing="false" onAction="#topOnion" prefHeight="30.0" prefWidth="135.0" text="Onions">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="97.0" layoutY="191.0" mnemonicParsing="false" onAction="#topOlives" prefHeight="30.0" prefWidth="135.0" text="Olives">
+                  <CheckBox fx:id="oliveBox" layoutX="97.0" layoutY="191.0" mnemonicParsing="false" onAction="#topOlives" prefHeight="30.0" prefWidth="135.0" text="Olives">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="97.0" layoutY="248.0" mnemonicParsing="false" onAction="#topExtraCheese" prefHeight="30.0" prefWidth="135.0" text="Extra cheese">
+                  <CheckBox fx:id="extraCheeseBox" layoutX="97.0" layoutY="248.0" mnemonicParsing="false" onAction="#topExtraCheese" prefHeight="30.0" prefWidth="135.0" text="Extra cheese">
                      <font>
                         <Font size="15.0" />
                      </font>
