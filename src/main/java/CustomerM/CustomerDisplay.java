@@ -5,6 +5,7 @@ import database.OrderConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -50,6 +51,9 @@ public class CustomerDisplay {
     private Color x4;
 
     @FXML
+    private CheckBox Mushroombox;
+
+    @FXML
     void CheckOut(ActionEvent event) throws IOException {
         asuID = iD.getText();
         System.out.println(asuID);
@@ -63,6 +67,8 @@ public class CustomerDisplay {
 
         window.setScene(scene);
         window.show();
+        System.out.println(PizzaNumber);
+        System.out.println(mushroom);
         PizzaNumber++; //if the order is successful ++ the key
     }
 
@@ -73,6 +79,7 @@ public class CustomerDisplay {
 
     @FXML
     void topExtraCheese(ActionEvent event) {
+
         if(extraCheese = false)
             extraCheese = true;
         else extraCheese = false;
@@ -80,7 +87,7 @@ public class CustomerDisplay {
 
     @FXML
     void topMushroom(ActionEvent event) {
-        if(mushroom = false)
+        if(Mushroombox.isSelected())
             mushroom = true;
         else mushroom = false;
     }
