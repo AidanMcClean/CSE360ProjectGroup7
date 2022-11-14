@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import jdk.jfr.TransitionFrom;
 import CustomerM.CustomerDisplay;
 import java.util.*;
-
+import java.util.Observer; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Stack;
