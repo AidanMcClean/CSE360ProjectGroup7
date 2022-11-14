@@ -19,10 +19,19 @@ public class ProcessDisplay {
     private PizzaOrder currentcustomer = new PizzaOrder();
     @FXML
     private Label PizzaType;
-    private int pizzaN = 0;
+    private int pizzaN = 1;
 
     public void labels(){
-        PizzaType.setText("Hi");
+        String type = " ";
+       int a = OrderConnection.PizzaType(pizzaN);
+       if(a == 0){
+           type = "Pepperoni";
+       } else if (a == 1) {
+           type = "Veggie";
+       } else if (a == 2) {
+           type = "Cheese";
+       }
+        PizzaType.setText(type);
         
     }
     @FXML
