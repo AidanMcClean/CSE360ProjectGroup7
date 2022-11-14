@@ -23,11 +23,13 @@ public class ChefDisplay {
     @FXML
     void finishStatus(ActionEvent event) {
     //2 in database
+        OrderConnection.updateStatus("Ready", 1);
     }
 
     @FXML
     void readyStatus(ActionEvent event) {
     //0 in database
+        OrderConnection.updateStatus("Ready to Cook", 1);
     }
 
 
