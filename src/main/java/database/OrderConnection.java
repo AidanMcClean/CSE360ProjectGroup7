@@ -89,14 +89,17 @@ public class OrderConnection {
         }
     }
     public static int PizzaType(int PizzaNumber) {
-        String sql = "SELECT PizzaType FROM PizzaOrder WHERE PizzaNumber = ?" ; //changable method to test stuff
+        String sql = "SELECT pizzatype FROM PizzaOrder WHERE PizzaNumber = ?" ; //changable method to test stuff
         try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql);
              Statement stmt = con.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
-
+            System.out.println("nice");
             ps.setInt(1, PizzaNumber);
             ps.executeUpdate();
-            return rs.getInt("PizzaType");
+            ps.close();
+            int a = rs.getInt("pizzatype");
+            System.out.println(a);
+            return a;
 
 
         } catch (SQLException e) {
