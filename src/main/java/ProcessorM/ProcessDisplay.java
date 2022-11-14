@@ -19,7 +19,7 @@ public class ProcessDisplay {
     private PizzaOrder currentcustomer = new PizzaOrder();
     @FXML
     private Label PizzaType;
-
+    private int pizzaN = 0;
 
     public void labels(){
         PizzaType.setText("Hi");
