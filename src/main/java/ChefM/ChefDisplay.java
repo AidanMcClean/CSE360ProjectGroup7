@@ -18,18 +18,21 @@ public class ChefDisplay {
     void cookingStatus(ActionEvent event) {
         //1 in database
         OrderConnection.updateStatus("Cooking", 1);
+        OrderConnection.PrintDB();
     }
 
     @FXML
     void finishStatus(ActionEvent event) {
     //2 in database
         OrderConnection.updateStatus("Ready", 1);
+        OrderConnection.PrintDB();
     }
 
     @FXML
     void readyStatus(ActionEvent event) {
     //0 in database
         OrderConnection.updateStatus("Ready to Cook", 1);
+        OrderConnection.PrintDB();
     }
 
 

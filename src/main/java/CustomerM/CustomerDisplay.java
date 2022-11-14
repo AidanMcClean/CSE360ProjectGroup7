@@ -51,7 +51,21 @@ public class CustomerDisplay {
     private Color x4;
 
     @FXML
+<<<<<<< Updated upstream
     private CheckBox Mushroombox;
+=======
+    private CheckBox mushroomBox;
+
+    @FXML
+    private CheckBox extraCheeseBox;
+
+    @FXML
+    private CheckBox oliveBox;
+
+    @FXML
+    private CheckBox onionBox;
+
+>>>>>>> Stashed changes
 
     @FXML
     void CheckOut(ActionEvent event) throws IOException {
@@ -79,29 +93,37 @@ public class CustomerDisplay {
 
     @FXML
     void topExtraCheese(ActionEvent event) {
+<<<<<<< Updated upstream
 
         if(extraCheese = false)
+=======
+        if(extraCheeseBox.isSelected())
+>>>>>>> Stashed changes
             extraCheese = true;
         else extraCheese = false;
     }
 
     @FXML
     void topMushroom(ActionEvent event) {
+<<<<<<< Updated upstream
         if(Mushroombox.isSelected())
+=======
+        if(mushroomBox.isSelected())
+>>>>>>> Stashed changes
             mushroom = true;
         else mushroom = false;
     }
 
     @FXML
     void topOlives(ActionEvent event) {
-        if(olives = false)
+        if(oliveBox.isSelected())
             olives = true;
         else olives = false;
     }
 
     @FXML
     void topOnion(ActionEvent event) {
-        if(onion = false)
+        if(onionBox.isSelected())
             onion = true;
         else onion = false;
     }

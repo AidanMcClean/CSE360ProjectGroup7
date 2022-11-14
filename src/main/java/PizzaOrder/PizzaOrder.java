@@ -66,6 +66,7 @@ public class PizzaOrder {
     }
 
     public PizzaOrder(PizzaOrder object) {
+        PizzaNumber = object.PizzaNumber;
         asuID = object.asuID;
         pizzaType = object.pizzaType;
         mushroom = object.mushroom;
