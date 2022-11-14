@@ -18,7 +18,7 @@ public class OrderConnection {
 
             statement.executeUpdate("drop table if exists PizzaOrder");
 
-            statement.executeUpdate("CREATE TABLE PizzaOrder (asuID varchar(255) NOT NULL, pizzatype int, mushroom boolean, onion boolean, olives boolean, extraCheese boolean, pickuptime varchar(5), acceptedStatus boolean, cookStatus varchar(255), PRIMARY KEY (asuID))");
+            statement.executeUpdate("CREATE TABLE PizzaOrder (PizzaNumber int NOT NULL, asuID varchar(255) NOT NULL, pizzatype int, mushroom boolean, onion boolean, olives boolean, extraCheese boolean, pickuptime varchar(5), acceptedStatus boolean, cookStatus varchar(255), PRIMARY KEY (PizzaNumber))");
 
 
         } catch (SQLException e) {
@@ -36,18 +36,19 @@ public class OrderConnection {
         }
     }
 
-    public static void insertOrder(String asuID, int pizzaType, boolean mushroom, boolean onion, boolean olives, boolean extraCheese, String pickupTime, boolean acceptedStatus, String cookStatus) {
-        final String SQL = "INSERT INTO PizzaOrder VALUES(? ,? ,? ,? ,? ,? ,? ,? ,?)";
+    public static void insertOrder(int PizzaNumber, String asuID, int pizzaType, boolean mushroom, boolean onion, boolean olives, boolean extraCheese, String pickupTime, boolean acceptedStatus, String cookStatus) {
+        final String SQL = "INSERT INTO PizzaOrder VALUES(?, ? ,? ,? ,? ,? ,? ,? ,? ,?)";
         try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
-            ps.setString(1, asuID);
-            ps.setInt(2, pizzaType);
-            ps.setBoolean(3, mushroom);
-            ps.setBoolean(4, onion);
-            ps.setBoolean(5, olives);
-            ps.setBoolean(6, extraCheese);
-            ps.setString(7, pickupTime);
-            ps.setBoolean(8, acceptedStatus);
-            ps.setString(9, cookStatus);
+            ps.setInt(1, PizzaNumber);
+            ps.setString(2, asuID);
+            ps.setInt(3, pizzaType);
+            ps.setBoolean(4, mushroom);
+            ps.setBoolean(5, onion);
+            ps.setBoolean(6, olives);
+            ps.setBoolean(7, extraCheese);
+            ps.setString(8, pickupTime);
+            ps.setBoolean(9, acceptedStatus);
+            ps.setString(10, cookStatus);
             ps.executeUpdate();
         } catch (SQLException e) {
             // if the error message is "out of memory",

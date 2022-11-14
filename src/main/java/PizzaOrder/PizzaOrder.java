@@ -5,7 +5,7 @@ import java.util.*;
 public class PizzaOrder {
 
     //instance variables
-
+    private int PizzaNumber = 0;
     private String asuID;
     private String asuEmail;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
@@ -18,6 +18,7 @@ public class PizzaOrder {
     private String cookStatus;
 
     public PizzaOrder() {
+        PizzaNumber = 0;
         asuID = "";
         asuEmail = asuID + "@asu.edu";
         int pizzaType = 0; //0: pepperoni, 1: veggie, 2: cheese
@@ -30,7 +31,8 @@ public class PizzaOrder {
         String cookStatus = "";
     }
 
-    public PizzaOrder(String asuIDi,int Type, boolean mushroomi, boolean onioni, boolean olivesi, boolean extraCheesei, String pickupTimei, boolean acceptedStatusi, String cookStatusi) {
+    public PizzaOrder(int PizzaNumberi, String asuIDi,int Type, boolean mushroomi, boolean onioni, boolean olivesi, boolean extraCheesei, String pickupTimei, boolean acceptedStatusi, String cookStatusi) {
+        PizzaNumber = PizzaNumberi;
         asuID = asuIDi;
         asuEmail = asuIDi + "@asu.edu";
         int pizzaType = Type; //0: pepperoni, 1: veggie, 2: cheese

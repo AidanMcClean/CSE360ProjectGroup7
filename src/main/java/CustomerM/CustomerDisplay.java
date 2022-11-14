@@ -18,6 +18,7 @@ import java.io.IOException;
 
 public class CustomerDisplay {
 
+    private int PizzaNumber = 1;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
     private boolean mushroom = false;
     private boolean onion = false;
@@ -50,11 +51,10 @@ public class CustomerDisplay {
 
     @FXML
     void CheckOut(ActionEvent event) throws IOException {
-        PizzaOrder customerOrder = new PizzaOrder(asuID, pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
-        asuID = iD.getText(); //TODO CHECK THE ID
+        asuID = iD.getText();
         System.out.println(asuID);
         //store customerOrder in database
-        OrderConnection.insertOrder(asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus); //test statement
+        OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus); //test statement
         OrderConnection.PrintDB(); //test
         FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -63,6 +63,7 @@ public class CustomerDisplay {
 
         window.setScene(scene);
         window.show();
+        PizzaNumber++; //if the order is successful ++ the key
     }
 
     @FXML
