@@ -16,9 +16,11 @@ import static database.OrderConnection.getConnection;
 
 public class ChefDisplay extends Observable {
 
-    public void incre() {
-        setChanged();
-        notifyObservers();
+    private String watchedValue = " ";
+
+
+    public String findStatus() {
+        return watchedValue;
     }
 
     @FXML
@@ -26,7 +28,8 @@ public class ChefDisplay extends Observable {
         //1 in database
         OrderConnection.updateStatus("Cooking", 1);
         OrderConnection.PrintDB();
-        incre();
+        watchedValue = "Cooking";
+        setChanged();
     }
 
     @FXML
@@ -34,7 +37,8 @@ public class ChefDisplay extends Observable {
     //2 in database
         OrderConnection.updateStatus("Ready", 1);
         OrderConnection.PrintDB();
-        incre();
+        watchedValue = "Ready";
+        setChanged();
     }
 
     @FXML
@@ -42,6 +46,7 @@ public class ChefDisplay extends Observable {
     //0 in database
         OrderConnection.updateStatus("Ready to Cook", 1);
         OrderConnection.PrintDB();
-        incre();
+        watchedValue = "Ready to Cook";
+        setChanged();
     }
 }

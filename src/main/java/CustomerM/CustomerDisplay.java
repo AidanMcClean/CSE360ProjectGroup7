@@ -71,9 +71,9 @@ public class CustomerDisplay implements Observer{
     @FXML
     private Label statuslabel;
 
-    public void update(Observable obj, Object arg) {
-        statuslabel.setText(OrderConnection.PizzaStatus(1));
-    }
+    public String name;
+
+
 
     private RadioButton cheesePizza;
 
@@ -158,5 +158,13 @@ public class CustomerDisplay implements Observer{
             pizzaType = 1;
     }
 
+    public void changeLabel(String value) {
+        statuslabel.setText(value);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 }
 
