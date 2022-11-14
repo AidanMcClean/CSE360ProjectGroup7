@@ -72,7 +72,7 @@ public class OrderConnection {
     }
 
     public static void PrintDB() {
-        String sql = "SELECT mushroom, PizzaType FROM PizzaOrder"; //changable method to test stuff
+        String sql = "SELECT mushroom, onion, pizzatype FROM PizzaOrder"; //changable method to test stuff
 
         try (Connection con = getConnection();
              Statement stmt = con.createStatement();
@@ -81,7 +81,8 @@ public class OrderConnection {
             // loop through the result set
             while (rs.next()) {
                 System.out.println(rs.getBoolean("mushroom") + "\t" +
-                        rs.getInt("PizzaType"));
+                        rs.getBoolean("onion") + "\t" +
+                        rs.getInt("pizzatype"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
