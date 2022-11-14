@@ -54,6 +54,7 @@ public class CustomerDisplay {
 
     private CheckBox Mushroombox;
 
+    @FXML
     private CheckBox mushroomBox;
 
     @FXML
@@ -104,8 +105,6 @@ public class CustomerDisplay {
 
     @FXML
     void topMushroom(ActionEvent event) {
-
-        if(Mushroombox.isSelected())
 
         if(mushroomBox.isSelected())
 
