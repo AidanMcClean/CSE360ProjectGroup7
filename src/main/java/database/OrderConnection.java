@@ -56,6 +56,19 @@ public class OrderConnection {
         }
     }
 
+    public static void updateStatus(String cookStatus, String asuID){
+        final String SQL = "UPDATE PizzaOrder SET cookStatus = ? WHERE asuID = ?";
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
+            ps.setString(1, cookStatus);
+            ps.setString(2, asuID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+    }
+
     public static void PrintDB() {
         String sql = "SELECT mushroom, PizzaType FROM PizzaOrder"; //changable method to test stuff
 
