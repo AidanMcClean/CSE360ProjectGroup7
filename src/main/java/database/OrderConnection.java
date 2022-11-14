@@ -50,6 +50,7 @@ public class OrderConnection {
             ps.setBoolean(9, acceptedStatus);
             ps.setString(10, cookStatus);
             ps.executeUpdate();
+            ps.close();
         } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
