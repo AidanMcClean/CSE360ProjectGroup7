@@ -17,7 +17,7 @@ import static database.OrderConnection.getConnection;
 
 
 
-public class ChefDisplay extends Observable {
+public class ChefDisplay /*extends Observable */{
 
     private String watchedValue = " ";
 
@@ -42,7 +42,7 @@ public class ChefDisplay extends Observable {
             OrderConnection.updateStatus("Cooking", 1);
             OrderConnection.PrintDB();
             watchedValue = "Cooking";
-            setChanged();
+            //setChanged();
         }
     }
 
@@ -53,7 +53,7 @@ public class ChefDisplay extends Observable {
             OrderConnection.updateStatus("Ready", 1);
             OrderConnection.PrintDB();
             watchedValue = "Ready";
-            setChanged();
+            //setChanged();
         }
     }
 
@@ -64,7 +64,7 @@ public class ChefDisplay extends Observable {
             OrderConnection.updateStatus("Ready to Cook", 1);
             OrderConnection.PrintDB();
             watchedValue = "Ready to Cook";
-            setChanged();
+            //setChanged();
         }
     }
 }

@@ -23,7 +23,9 @@ import CustomerM.CustomerEX;
 
 import java.io.IOException;
 
-public class CustomerDisplay implements Observer{
+
+
+public class CustomerDisplay /*implements Observer*/{
 
     private int PizzaNumber = 1;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
@@ -159,13 +161,29 @@ public class CustomerDisplay implements Observer{
             pizzaType = 1;
     }
 
+/*
+    public static void main(String[] args) {
+
+        ChefDisplay watched = new ChefDisplay();
+
+        CustomerDisplay watcher = new CustomerDisplay();
+
+        watched.addObserver(watcher);
+
+        watched.findStatus();
+
+        if (watched.hasChanged())
+            watcher.changeLabel(watched.findStatus());
+        else
+            System.out.println("Value not changed");
+    }
     public void changeLabel(String value) {
         statuslabel.setText(value);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-
-    }
+        changeLabel(OrderConnection.PizzaStatus(1));
+    }*/
 }
 

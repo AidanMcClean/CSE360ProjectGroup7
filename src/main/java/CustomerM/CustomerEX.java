@@ -29,21 +29,6 @@ public class CustomerEX extends Application {
 	public static void main(String[] args) {
 		launch();
 
-		ChefDisplay watched = new ChefDisplay();
-
-		CustomerDisplay watcher = new CustomerDisplay();
-
-		watched.addObserver(watcher);
-
-		watched.findStatus();
-
-		if (watched.hasChanged())
-			watcher.changeLabel(watched.findStatus());
-		else
-			System.out.println("Value not changed");
-	}
-	public void update(Observable obj, Object arg) {
-		System.out.println("Update called");
 	}
 
 }
