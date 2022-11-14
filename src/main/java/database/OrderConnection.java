@@ -102,7 +102,7 @@ public class OrderConnection {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         }
-        return 5; 
+        return 5;
     }
 
 

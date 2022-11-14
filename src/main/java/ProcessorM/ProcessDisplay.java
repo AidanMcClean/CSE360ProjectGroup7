@@ -23,7 +23,7 @@ public class ProcessDisplay {
 
     public void labels(){
         PizzaType.setText("Hi");
-        OrderConnection
+        
     }
     @FXML
     void processOrder(ActionEvent event) {
