@@ -1,13 +1,20 @@
 package CustomerM;
 import PizzaOrder.PizzaOrder;
+import ProcessorM.ProcessDisplay;
 import database.OrderConnection;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
 
 import CustomerM.CustomerEX;
+
+import java.io.IOException;
 
 public class CustomerDisplay {
 
@@ -42,13 +49,20 @@ public class CustomerDisplay {
     private Color x4;
 
     @FXML
-    void CheckOut(ActionEvent event) {
+    void CheckOut(ActionEvent event) throws IOException {
         PizzaOrder customerOrder = new PizzaOrder(asuID, pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
         asuID = iD.getText(); //TODO CHECK THE ID
         System.out.println(asuID);
         //store customerOrder in database
         OrderConnection.insertOrder(asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus); //test statement
         OrderConnection.PrintDB(); //test
+        FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
     }
 
     @FXML
