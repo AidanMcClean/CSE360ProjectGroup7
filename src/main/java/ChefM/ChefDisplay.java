@@ -44,8 +44,4 @@ public class ChefDisplay extends Observable {
         OrderConnection.PrintDB();
         incre();
     }
-
-
-
-
 }

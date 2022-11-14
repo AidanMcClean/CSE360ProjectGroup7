@@ -34,7 +34,7 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
-                  <RadioButton layoutX="66.0" layoutY="84.0" mnemonicParsing="false" onAction="#typePepperoni" text="Pepperoni">
+                  <RadioButton fx:id="pepPizza" layoutX="66.0" layoutY="84.0" mnemonicParsing="false" onAction="#typePepperoni" text="Pepperoni">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -42,12 +42,12 @@
                         <ToggleGroup fx:id="pizzagroup" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="66.0" layoutY="191.0" mnemonicParsing="false" onAction="#typeCheese" text="Cheese" toggleGroup="$pizzagroup">
+                  <RadioButton fx:id="cheesePizza" layoutX="66.0" layoutY="191.0" mnemonicParsing="false" onAction="#typeCheese" text="Cheese" toggleGroup="$pizzagroup">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton layoutX="66.0" layoutY="305.0" mnemonicParsing="false" onAction="#typeVeggie" prefHeight="30.0" prefWidth="100.0" text="Veggie" toggleGroup="$pizzagroup">
+                  <RadioButton fx:id="veggiePizza" layoutX="66.0" layoutY="305.0" mnemonicParsing="false" onAction="#typeVeggie" prefHeight="30.0" prefWidth="100.0" text="Veggie" toggleGroup="$pizzagroup">
                      <font>
                         <Font size="20.0" />
                      </font>

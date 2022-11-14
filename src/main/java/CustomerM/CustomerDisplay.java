@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -74,6 +75,14 @@ public class CustomerDisplay implements Observer{
         statuslabel.setText(OrderConnection.PizzaStatus(1));
     }
 
+    private RadioButton cheesePizza;
+
+    @FXML
+    private RadioButton pepPizza;
+
+    @FXML
+    private RadioButton veggiePizza;
+
 
 
     @FXML
@@ -133,17 +142,20 @@ public class CustomerDisplay implements Observer{
 
     @FXML
     void typeCheese(ActionEvent event) {
-        pizzaType = 2;
+        if(cheesePizza.isSelected())
+            pizzaType = 2;
     }
 
     @FXML
     void typePepperoni(ActionEvent event) {
-        pizzaType = 0;
+        if(pepPizza.isSelected())
+            pizzaType = 0;
     }
 
     @FXML
     void typeVeggie(ActionEvent event) {
-        pizzaType = 1;
+        if(veggiePizza.isSelected())
+            pizzaType = 1;
     }
 
 }
