@@ -19,6 +19,8 @@ public class ProcessDisplay {
     private PizzaOrder currentcustomer = new PizzaOrder();
     @FXML
     private Label PizzaType;
+    @FXML
+    private Label PizzaToppings;
     private int pizzaN = 1;
 
 
@@ -37,7 +39,9 @@ public class ProcessDisplay {
            PizzaType.setText(type);
        }else  System.out.println(");");
        OrderConnection.PrintDB();
-        
+       String toppings = OrderConnection.PizzaToppings(pizzaN);
+        PizzaToppings.setText(toppings);
+
     }
     @FXML
     void processOrder(ActionEvent event) {

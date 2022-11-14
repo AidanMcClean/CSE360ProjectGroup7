@@ -43,10 +43,7 @@
                      </font>
                   </Text>
                   <Label fx:id="PizzaType" layoutX="22.0" layoutY="54.0" prefHeight="32.0" prefWidth="245.0" text=" " />
-                  <Label fx:id="Topping1" layoutX="22.0" layoutY="165.0" prefHeight="32.0" prefWidth="111.0" text=" " />
-                  <Label fx:id="Topping2" layoutX="142.0" layoutY="165.0" prefHeight="32.0" prefWidth="128.0" text=" " />
-                  <Label fx:id="Topping3" layoutX="22.0" layoutY="197.0" prefHeight="32.0" prefWidth="111.0" text=" " />
-                  <Label fx:id="Topping4" layoutX="142.0" layoutY="197.0" prefHeight="32.0" prefWidth="111.0" text=" " />
+                  <Label fx:id="PizzaToppings" layoutX="22.0" layoutY="165.0" prefHeight="60.0" prefWidth="258.0" text=" " />
                   <Label fx:id="PickupTime" layoutX="11.0" layoutY="288.0" prefHeight="32.0" prefWidth="245.0" text=" " />
                </children></AnchorPane>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="530.0" prefWidth="300.0" />
