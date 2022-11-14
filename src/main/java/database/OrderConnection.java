@@ -107,6 +107,25 @@ public class OrderConnection {
         return 5;
     }
 
+    public static String PizzaStatus(int PizzaNumber) {
+        String sql = "SELECT acceptedStatus FROM PizzaOrder WHERE PizzaNumber = ?" ; //changable method to test stuff
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql);
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            ps.setInt(1, PizzaNumber);
+            ps.executeUpdate();
+            return rs.getString("acceptedStatus");
+
+
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return " ";
+    }
+
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);

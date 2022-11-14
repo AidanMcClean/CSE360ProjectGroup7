@@ -6,18 +6,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
+import java.util.*;
+import ChefM.ChefDisplay;
+
 
 import CustomerM.CustomerEX;
 
 import java.io.IOException;
 
-public class CustomerDisplay {
+public class CustomerDisplay implements Observer{
 
     private int PizzaNumber = 1;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
@@ -62,6 +66,14 @@ public class CustomerDisplay {
 
     @FXML
     private CheckBox onionBox;
+
+    @FXML
+    private Label statuslabel;
+
+    public void update(Observable obj, Object arg) {
+        statuslabel.setText(OrderConnection.PizzaStatus(1));
+    }
+
 
 
     @FXML
