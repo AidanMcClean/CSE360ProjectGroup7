@@ -1,12 +1,15 @@
 package CustomerM;
 
+import database.OrderConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import CustomerM.CustomerEX;
-
+import database.OrderConnection;
 import java.io.*;
+import java.sql.Connection;
+
 
 public class CustomerEX extends Application {
 	
@@ -22,8 +25,7 @@ public class CustomerEX extends Application {
 
 	}
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args){
 		launch();
 	}
 

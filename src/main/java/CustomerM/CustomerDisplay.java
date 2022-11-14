@@ -47,7 +47,8 @@ public class CustomerDisplay {
         asuID = iD.getText(); //TODO CHECK THE ID
         System.out.println(asuID);
         //store customerOrder in database
-        OrderConnection.insertOrder(1, "testID", 1, false,false,false,false,"hi",false,"hi"); //test statement
+        OrderConnection.insertOrder(asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus); //test statement
+        OrderConnection.PrintDB(); //test
     }
 
     @FXML
