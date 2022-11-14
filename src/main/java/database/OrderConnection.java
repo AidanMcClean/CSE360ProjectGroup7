@@ -57,11 +57,11 @@ public class OrderConnection {
         }
     }
 
-    public static void updateStatus(String cookStatus, String asuID){
+    public static void updateStatus(String cookStatus, int PizzaNumber){
         final String SQL = "UPDATE PizzaOrder SET cookStatus = ? WHERE asuID = ?";
         try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
             ps.setString(1, cookStatus);
-            ps.setString(2, asuID);
+            ps.setInt(2, PizzaNumber);
             ps.executeUpdate();
         } catch (SQLException e) {
             // if the error message is "out of memory",
