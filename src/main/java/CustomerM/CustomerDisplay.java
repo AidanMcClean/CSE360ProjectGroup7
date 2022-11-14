@@ -90,10 +90,6 @@ public class CustomerDisplay {
 
     @FXML
     void topExtraCheese(ActionEvent event) {
-
-
-        if(extraCheese = false)
-
         if(extraCheeseBox.isSelected())
 
             extraCheese = true;
