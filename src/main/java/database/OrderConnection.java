@@ -4,6 +4,10 @@ import java.sql.*;
 
 
 public class OrderConnection {
+
+
+    private static final String URL = "jdbc:sqlite:OrderData.db";
+
     public static void main(String[] args) {
         Connection connection = null;
         try {
@@ -14,7 +18,7 @@ public class OrderConnection {
 
             statement.executeUpdate("drop table if exists PizzaOrder");
 
-            statement.executeUpdate("CREATE TABLE PizzaOrder (PizzaNumber int NOT NULL, asuID varchar(255) NOT NULL, pizzatype int, mushroom boolean, onion boolean, olives boolean, extraCheese boolean, pickuptime varchar(5), acceptedStatus boolean, cookStatus varchar(255), PRIMARY KEY (PizzaNumber))");
+            statement.executeUpdate("CREATE TABLE PizzaOrder (asuID varchar(255) NOT NULL, pizzatype int, mushroom boolean, onion boolean, olives boolean, extraCheese boolean, pickuptime varchar(5), acceptedStatus boolean, cookStatus varchar(255), PRIMARY KEY (asuID))");
 
 
         } catch (SQLException e) {
@@ -31,23 +35,46 @@ public class OrderConnection {
             }
         }
     }
-    public static void insertOrder(int PizzaNumber, String asuID, int pizzaType, boolean mushroom, boolean onion, boolean olives, boolean extraCheese, String pickupTime, boolean acceptedStatus, String cookStatus){
-        final String SQL = "INSERT INTO PizzaOrder VALUES(?, ? ,? ,? ,? ,? ,? ,? ,? ,?)";
-        try (Connection con = DriverManager.getConnection("jdbc:sqlite:OrderData.db"); PreparedStatement ps = con.prepareStatement(SQL);){
-            ps.setInt(1, PizzaNumber);
-            ps.setString(2, asuID);
-            ps.setInt(3, pizzaType);
-            ps.setBoolean(4, mushroom);
-            ps.setBoolean(5, onion);
-            ps.setBoolean(6, olives);
-            ps.setBoolean(7, extraCheese);
-            ps.setString(8, pickupTime);
-            ps.setBoolean(9, acceptedStatus);
-            ps.setString(10, cookStatus);
-        }catch (SQLException e) {
+
+    public static void insertOrder(String asuID, int pizzaType, boolean mushroom, boolean onion, boolean olives, boolean extraCheese, String pickupTime, boolean acceptedStatus, String cookStatus) {
+        final String SQL = "INSERT INTO PizzaOrder VALUES(? ,? ,? ,? ,? ,? ,? ,? ,?)";
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
+            ps.setString(1, asuID);
+            ps.setInt(2, pizzaType);
+            ps.setBoolean(3, mushroom);
+            ps.setBoolean(4, onion);
+            ps.setBoolean(5, olives);
+            ps.setBoolean(6, extraCheese);
+            ps.setString(7, pickupTime);
+            ps.setBoolean(8, acceptedStatus);
+            ps.setString(9, cookStatus);
+            ps.executeUpdate();
+        } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
             System.err.println(e.getMessage());
         }
     }
+
+    public static void PrintDB() {
+        String sql = "SELECT mushroom, PizzaType FROM PizzaOrder"; //changable method to test stuff
+
+        try (Connection con = getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println(rs.getBoolean("mushroom") + "\t" +
+                        rs.getInt("PizzaType"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL);
+    }
+
 }
