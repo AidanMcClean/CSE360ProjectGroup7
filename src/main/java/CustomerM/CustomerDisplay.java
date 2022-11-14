@@ -50,9 +50,6 @@ public class CustomerDisplay {
     @FXML
     private Color x4;
 
-    @FXML
-
-    private CheckBox Mushroombox;
 
     @FXML
     private CheckBox mushroomBox;
