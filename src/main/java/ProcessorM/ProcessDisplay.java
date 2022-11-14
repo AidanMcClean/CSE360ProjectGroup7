@@ -33,6 +33,7 @@ public class ProcessDisplay {
        } else if (a == 2) {
            type = "Cheese";
        }
+       OrderConnection.PrintDB();
         PizzaType.setText(type);
         
     }

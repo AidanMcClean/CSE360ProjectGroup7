@@ -94,7 +94,6 @@ public class OrderConnection {
 
             ps.setInt(1, PizzaNumber);
             ps.executeUpdate();
-
             return rs.getInt("PizzaType");
 
 
