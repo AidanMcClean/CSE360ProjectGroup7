@@ -34,8 +34,4 @@ public class ChefDisplay {
         OrderConnection.updateStatus("Ready to Cook", 1);
         OrderConnection.PrintDB();
     }
-
-
-
-
 }
