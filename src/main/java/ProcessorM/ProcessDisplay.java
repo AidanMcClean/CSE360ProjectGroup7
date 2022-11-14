@@ -28,6 +28,7 @@ public class ProcessDisplay {
     @FXML
     void processOrder(ActionEvent event) {
         labels();
+        //adds one to PizzaNumber to shift the order that is pointed
     }
 
 }

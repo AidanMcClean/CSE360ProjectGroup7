@@ -14,8 +14,7 @@ public class ChefDisplay {
 
     @FXML
     void finishStatus(ActionEvent event) {
-        //removes key 1
-        //selects all keys in the table and subtracts 1
+
     }
 
     @FXML
