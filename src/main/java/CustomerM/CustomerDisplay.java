@@ -89,7 +89,7 @@ public class CustomerDisplay implements Observer{
     @Override
     public void update(Observable o, Object arg) {
 
-        System.out.println("Works!");
+        //check SQL database and update the javaFX
 
     }
 
