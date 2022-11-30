@@ -16,7 +16,8 @@ import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
 import java.util.*;
 import ChefM.ChefDisplay;
-import java.util.Observer; 
+import java.util.Observer;
+import java.util.Observable;
 
 
 import CustomerM.CustomerEX;
@@ -25,7 +26,7 @@ import java.io.IOException;
 
 
 
-public class CustomerDisplay /*implements Observer*/{
+public class CustomerDisplay implements Observer{
 
     private int PizzaNumber = 1;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
@@ -77,7 +78,6 @@ public class CustomerDisplay /*implements Observer*/{
     public String name;
 
 
-
     private RadioButton cheesePizza;
 
     @FXML
@@ -86,6 +86,12 @@ public class CustomerDisplay /*implements Observer*/{
     @FXML
     private RadioButton veggiePizza;
 
+    @Override
+    public void update(Observable o, Object arg) {
+
+        System.out.println("Works!");
+
+    }
 
 
     @FXML

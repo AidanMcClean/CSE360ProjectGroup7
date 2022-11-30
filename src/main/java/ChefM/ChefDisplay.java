@@ -8,6 +8,7 @@ import jdk.jfr.TransitionFrom;
 import CustomerM.CustomerDisplay;
 import java.util.*;
 import java.util.Observer;
+import java.util.Observable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Stack;
@@ -17,7 +18,7 @@ import static database.OrderConnection.getConnection;
 
 
 
-public class ChefDisplay /*extends Observable */{
+public class ChefDisplay extends Observable {
 
     private String watchedValue = " ";
 
@@ -30,9 +31,14 @@ public class ChefDisplay /*extends Observable */{
     @FXML
     private RadioButton ready;
 
-
     public String findStatus() {
         return watchedValue;
+    }
+
+    public void incre()
+    {
+        setChanged();
+        notifyObservers();
     }
 
     @FXML
@@ -42,6 +48,7 @@ public class ChefDisplay /*extends Observable */{
             OrderConnection.updateStatus("Cooking", 1);
             OrderConnection.PrintDB();
             watchedValue = "Cooking";
+            setChanged();
             //setChanged();
         }
     }
