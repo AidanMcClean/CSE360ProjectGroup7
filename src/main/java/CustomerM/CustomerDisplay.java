@@ -90,7 +90,7 @@ public class CustomerDisplay implements Observer{
     public void update(Observable o, Object arg) {
 
         //check SQL database and update the javaFX
-        String a = OrderConnection.PizzaStatus(PizzaNumber);
+        String a = OrderConnection.PizzaStatus(1);
         statuslabel.setText(a);
     }
 
