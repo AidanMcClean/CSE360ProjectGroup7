@@ -148,22 +148,23 @@ public class OrderConnection {
     }
 
     public static String PizzaStatus(int PizzaNumber) {
-        String sql = "SELECT acceptedStatus FROM PizzaOrder WHERE PizzaNumber = ?" ; //changable method to test stuff
-        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql);
-             Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
+        String sql = "SELECT cookStatus FROM PizzaOrder WHERE PizzaNumber = ?" ; //changable method to test stuff
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            String m = " ";
             ps.setInt(1, PizzaNumber);
-            ps.executeUpdate();
-            return rs.getString("acceptedStatus");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                m = rs.getString("cookStatus");
+            }
 
+            return m;
 
         } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
             System.err.println(e.getMessage());
         }
-        return " ";
+        return "unlucky";
     }
 
 
