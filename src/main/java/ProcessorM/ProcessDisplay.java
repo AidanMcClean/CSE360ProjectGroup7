@@ -22,7 +22,7 @@ public class ProcessDisplay {
 
     @FXML
     private Label PickupTime;
-    private int pizzaN = 1;
+    private int pizzaN = OrderConnection.getMin();
 
 
 
@@ -39,16 +39,29 @@ public class ProcessDisplay {
            type = "Cheese";
            PizzaType.setText(type);
        }else  System.out.println(");");
-       OrderConnection.PrintDB();
        String pickTime = OrderConnection.PizzaTime(pizzaN);
        PickupTime.setText(pickTime);
        String toppings = OrderConnection.PizzaToppings(pizzaN);
        PizzaToppings.setText(toppings);
-       pizzaN++;
     }
     @FXML
     void processOrder(ActionEvent event) {
-        labels();
+       String order = PizzaType.getText();
+        if(order.equals(" ")){
+            pizzaN = OrderConnection.getMin();
+            labels();
+        }else{
+            if(OrderConnection.getMax() == OrderConnection.getMin()){
+                labels();
+                pizzaN = pizzaN;
+            }
+            else{
+                System.out.println(OrderConnection.getMin());
+                pizzaN+=1;
+                System.out.println(OrderConnection.getMax());
+                labels();
+            }
+        }
         //adds one to PizzaNumber to shift the order that is pointed
     }
 
