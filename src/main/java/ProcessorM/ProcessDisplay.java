@@ -1,6 +1,5 @@
 package ProcessorM;
 
-import PizzaOrder.PizzaOrder;
 import database.OrderConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +15,6 @@ import java.util.Queue;
 public class ProcessDisplay {
 
 
-    private PizzaOrder currentcustomer = new PizzaOrder();
     @FXML
     private Label PizzaType;
     @FXML
@@ -47,7 +45,6 @@ public class ProcessDisplay {
        String toppings = OrderConnection.PizzaToppings(pizzaN);
        PizzaToppings.setText(toppings);
        pizzaN++;
-
     }
     @FXML
     void processOrder(ActionEvent event) {

@@ -1,5 +1,4 @@
 package CustomerM;
-import PizzaOrder.PizzaOrder;
 import ProcessorM.ProcessDisplay;
 import database.OrderConnection;
 import javafx.event.ActionEvent;
