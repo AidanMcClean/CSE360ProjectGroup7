@@ -167,6 +167,22 @@ public class OrderConnection {
         return "unlucky";
     }
 
+    public static int getMax(){
+        String sql = "SELECT MAX(PizzaNumber) as max_pNum from PizzaOrder";
+        int max = 0;
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            // loop through the result set
+            if (rs.next()) {
+                max = rs.getInt("max_pNum");
+            }
+            return max;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return max;
+    }
+
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);

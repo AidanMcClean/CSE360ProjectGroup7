@@ -42,6 +42,9 @@ public class CustomerDisplay implements Observer{
     private TextField iD;
 
     @FXML
+    private TextField pickTime;
+
+    @FXML
     private Font x1;
 
     @FXML
@@ -99,9 +102,10 @@ public class CustomerDisplay implements Observer{
     void CheckOut(ActionEvent event) throws IOException {
         asuID = iD.getText();
         System.out.println(asuID);
+        pickupTime = pickTime.getText();
+        PizzaNumber = OrderConnection.getMax() + 1;
         //store customerOrder in database
-        OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus); //test statement
-        OrderConnection.PrintDB(); //test
+        OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus);
         FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
@@ -110,13 +114,11 @@ public class CustomerDisplay implements Observer{
         window.setScene(scene);
         window.show();
         System.out.println(PizzaNumber);
-        System.out.println(mushroom);
-        PizzaNumber++; //if the order is successful ++ the key
     }
 
     @FXML
     void pickTime(ActionEvent event) {
-            
+
     }
 
     @FXML
