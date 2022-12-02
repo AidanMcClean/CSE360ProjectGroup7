@@ -71,6 +71,19 @@ public class OrderConnection {
         }
     }
 
+    public static void updateAStatus(boolean acceptedStatus, int PizzaNumber){
+        final String SQL = "UPDATE PizzaOrder SET acceptedStatus = ? WHERE PizzaNumber =?";
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
+            ps.setBoolean(1, acceptedStatus);
+            ps.setInt(2, PizzaNumber);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+    }
+
     public static void PrintDB() {
         String sql = "SELECT mushroom, onion, pizzatype FROM PizzaOrder"; //changable method to test stuff
 
@@ -182,6 +195,26 @@ public class OrderConnection {
             System.err.println(e.getMessage());
         }
         return "unlucky";
+    }
+
+    public static Boolean acceptedStatus(int PizzaNumber) {
+        String sql = "SELECT acceptedStatus FROM PizzaOrder WHERE PizzaNumber = ?" ;
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            Boolean m = false;
+            ps.setInt(1, PizzaNumber);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                m = rs.getBoolean("acceptedStatus");
+            }
+
+            return m;
+
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
 
     public static int getMax(){

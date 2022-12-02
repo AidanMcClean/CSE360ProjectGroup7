@@ -1,5 +1,4 @@
 package CustomerM;
-import ProcessorM.ProcessDisplay;
 import database.OrderConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
+
+import java.io.File;
 import java.util.*;
-import ChefM.ChefDisplay;
 import java.util.Observer;
 import java.util.Observable;
 
-
-import CustomerM.CustomerEX;
 
 import java.io.IOException;
 
@@ -95,22 +93,37 @@ public class CustomerDisplay implements Observer{
     }
 
 
+    public static Boolean checkID(String asuID) throws IOException {
+
+        File file = new File(CustomerDisplay.class.getResource("data.txt").getFile());
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()){
+            if(scan.nextLine().equals(asuID)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @FXML
     void CheckOut(ActionEvent event) throws IOException {
         asuID = iD.getText();
-        System.out.println(asuID);
-        pickupTime = pickTime.getText();
-        PizzaNumber = OrderConnection.getMax() + 1;
-        //store customerOrder in database
-        OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus);
-        FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        if(checkID(asuID) == true) {
+            System.out.println(asuID);
+            pickupTime = pickTime.getText();
+            PizzaNumber = OrderConnection.getMax() + 1;
+            //store customerOrder in database
+            OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
+            FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        window.setScene(scene);
-        window.show();
-        System.out.println(PizzaNumber);
+            window.setScene(scene);
+            window.show();
+            System.out.println(PizzaNumber);
+        }
+        else iD.setText("Invalid ASUID");
     }
 
     @FXML
