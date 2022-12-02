@@ -53,7 +53,6 @@ public class ProcessDisplay {
         }else{
             if(OrderConnection.getMax() == OrderConnection.getMin()){
                 labels();
-                pizzaN = pizzaN;
             }
             else{
                 System.out.println(OrderConnection.getMin());

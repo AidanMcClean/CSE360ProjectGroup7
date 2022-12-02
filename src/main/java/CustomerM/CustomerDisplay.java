@@ -35,7 +35,7 @@ public class CustomerDisplay implements Observer{
     private boolean extraCheese = false;
     private String pickupTime;
     private boolean acceptedStatus = false;
-    private String cookStatus;
+    private String cookStatus = "Processing";
     private String asuID;
     @FXML
     private TextField iD;
@@ -77,9 +77,7 @@ public class CustomerDisplay implements Observer{
     @FXML
     private Label statuslabel;
 
-    public String name;
-
-
+    @FXML
     private RadioButton cheesePizza;
 
     @FXML
@@ -135,6 +133,12 @@ public class CustomerDisplay implements Observer{
 
             mushroom = true;
         else mushroom = false;
+    }
+
+    @FXML
+    void orderStatus(ActionEvent event) {
+        String a = OrderConnection.PizzaStatus(PizzaNumber);
+        statuslabel.setText(a);
     }
 
     @FXML
