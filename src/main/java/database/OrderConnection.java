@@ -111,6 +111,26 @@ public class OrderConnection {
         return 5;
     }
 
+    public static String PizzaTime(int PizzaNumber) {
+        String sql = "SELECT pickuptime FROM PizzaOrder WHERE PizzaNumber =?" ;
+        String a = " ";
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, PizzaNumber);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                a = rs.getString("pickuptime");
+            }
+            return a;
+
+
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return a;
+    }
+
     public static String PizzaToppings(int PizzaNumber) {
         String sql = "SELECT mushroom, onion, olives, extraCheese FROM PizzaOrder WHERE PizzaNumber =?" ; //changable method to test stuff
         try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {

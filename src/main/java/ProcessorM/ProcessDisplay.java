@@ -21,6 +21,9 @@ public class ProcessDisplay {
     private Label PizzaType;
     @FXML
     private Label PizzaToppings;
+
+    @FXML
+    private Label PickupTime;
     private int pizzaN = 1;
 
 
@@ -39,8 +42,11 @@ public class ProcessDisplay {
            PizzaType.setText(type);
        }else  System.out.println(");");
        OrderConnection.PrintDB();
+       String pickTime = OrderConnection.PizzaTime(pizzaN);
+       PickupTime.setText(pickTime);
        String toppings = OrderConnection.PizzaToppings(pizzaN);
-        PizzaToppings.setText(toppings);
+       PizzaToppings.setText(toppings);
+       pizzaN++;
 
     }
     @FXML
