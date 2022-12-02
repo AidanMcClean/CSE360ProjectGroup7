@@ -14,8 +14,9 @@ public class PizzaOrder {
     private boolean olives;
     private boolean extraCheese;
     private String pickupTime;
-    private boolean acceptedStatus;
-    private String cookStatus;
+    private boolean acceptedStatus = true;
+    private String cookStatus; // ORDER_ACCEPTED, COOKING, READY, N/A
+    enum statusType{ORDER_ACCEPTED, COOKING, READY}
 
     public PizzaOrder() {
         PizzaNumber = 0;
@@ -49,12 +50,38 @@ public class PizzaOrder {
         return cookStatus;
     }
 
-    public void setStatus(String statusType) {
-        cookStatus = statusType;
+    public void setStatus(statusType type) {
+        if(type == statusType.ORDER_ACCEPTED) {
+            cookStatus = "ORDER ACCEPTED";
+            acceptedStatus = true;
+        }
+        else if(type == statusType.COOKING) {
+            cookStatus = "COOKING";
+            acceptedStatus = true;
+        }
+        else if(type == statusType.READY) {
+            cookStatus = "READY";
+            acceptedStatus = true;
+        }
+        else {
+            cookStatus = "N/A";
+            acceptedStatus = false;
+        }
     }
 
     public String getStatus() {
-        return " ";
+        if(cookStatus.equals("ORDER ACCEPTED")) {
+            return "ORDER ACCEPTED";
+        }
+        else if(cookStatus.equals("COOKING")) {
+            return "COOKING";
+        }
+        else if(cookStatus.equals("READY")) {
+            return "READY";
+        }
+        else {
+            return "N/A";
+        }
     }
 
     public String getID(){
