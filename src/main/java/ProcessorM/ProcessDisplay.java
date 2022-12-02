@@ -1,6 +1,5 @@
 package ProcessorM;
 
-import PizzaOrder.PizzaOrder;
 import database.OrderConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,12 +15,14 @@ import java.util.Queue;
 public class ProcessDisplay {
 
 
-    private PizzaOrder currentcustomer = new PizzaOrder();
     @FXML
     private Label PizzaType;
     @FXML
     private Label PizzaToppings;
-    private int pizzaN = 1;
+
+    @FXML
+    private Label PickupTime;
+    private int pizzaN = OrderConnection.getMin();
 
 
 
@@ -38,14 +39,30 @@ public class ProcessDisplay {
            type = "Cheese";
            PizzaType.setText(type);
        }else  System.out.println(");");
-       OrderConnection.PrintDB();
+       String pickTime = OrderConnection.PizzaTime(pizzaN);
+       PickupTime.setText(pickTime);
        String toppings = OrderConnection.PizzaToppings(pizzaN);
-        PizzaToppings.setText(toppings);
-
+       PizzaToppings.setText(toppings);
     }
     @FXML
     void processOrder(ActionEvent event) {
-        labels();
+       String order = PizzaType.getText();
+        if(order.equals(" ")){
+            pizzaN = OrderConnection.getMin();
+            labels();
+        }else{
+            if(OrderConnection.getMax() == OrderConnection.getMin()){
+                labels();
+                OrderConnection.updateAStatus(true, pizzaN);
+            }
+            else{
+                System.out.println(OrderConnection.getMin());
+                OrderConnection.updateAStatus(true, pizzaN);
+                pizzaN+=1;
+                System.out.println(OrderConnection.getMax());
+                labels();
+            }
+        }
         //adds one to PizzaNumber to shift the order that is pointed
     }
 

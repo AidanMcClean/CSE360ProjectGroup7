@@ -31,6 +31,8 @@ public class ChefDisplay extends Observable {
     @FXML
     private RadioButton ready;
 
+    private int pizzaNumber = OrderConnection.getMin();
+
     public String findStatus() {
         return watchedValue;
     }
@@ -45,11 +47,10 @@ public class ChefDisplay extends Observable {
     public void cookingStatus(ActionEvent event) {
         //1 in database
         if (cooking.isSelected()) {
-            OrderConnection.updateStatus("Cooking", 1);
-            OrderConnection.PrintDB();
-            watchedValue = "Cooking";
-            setChanged();
-            //setChanged();
+            pizzaNumber = OrderConnection.getMin();
+            if(OrderConnection.acceptedStatus(pizzaNumber) == true) {
+                OrderConnection.updateStatus("Cooking", pizzaNumber);
+            }
         }
     }
 
@@ -57,10 +58,11 @@ public class ChefDisplay extends Observable {
     void finishStatus(ActionEvent event) {
     //2 in database
         if (ready.isSelected()) {
-            OrderConnection.updateStatus("Ready", 1);
-            OrderConnection.PrintDB();
-            watchedValue = "Ready";
-            //setChanged();
+            pizzaNumber = OrderConnection.getMin();
+            if(OrderConnection.acceptedStatus(pizzaNumber) == true) {
+                OrderConnection.updateStatus("Ready", pizzaNumber);
+                OrderConnection.DeleteRow(pizzaNumber);
+            }
         }
     }
 
@@ -68,10 +70,10 @@ public class ChefDisplay extends Observable {
     void readyStatus(ActionEvent event) {
     //0 in database
         if (rdyToCook.isSelected()) {
-            OrderConnection.updateStatus("Ready to Cook", 1);
-            OrderConnection.PrintDB();
-            watchedValue = "Ready to Cook";
-            //setChanged();
+            pizzaNumber = OrderConnection.getMin();
+            if(OrderConnection.acceptedStatus(pizzaNumber) == true) {
+                OrderConnection.updateStatus("Ready to cook", pizzaNumber);
+            }
         }
     }
 }

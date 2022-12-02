@@ -1,6 +1,4 @@
 package CustomerM;
-import PizzaOrder.PizzaOrder;
-import ProcessorM.ProcessDisplay;
 import database.OrderConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,14 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
-import java.util.*;
 
-import ChefM.ChefDisplay;
+import java.io.File;
+import java.util.*;
 import java.util.Observer;
 import java.util.Observable;
 
-
-import CustomerM.CustomerEX;
 
 import java.io.IOException;
 
@@ -37,10 +33,13 @@ public class CustomerDisplay implements Observer{
     private boolean extraCheese = false;
     private String pickupTime;
     private boolean acceptedStatus = false;
-    private String cookStatus;
+    private String cookStatus = "Processing";
     private String asuID;
     @FXML
     private TextField iD;
+
+    @FXML
+    private TextField pickTime;
 
     @FXML
     private Font x1;
@@ -76,9 +75,7 @@ public class CustomerDisplay implements Observer{
     @FXML
     private Label statuslabel;
 
-    public String name;
-
-
+    @FXML
     private RadioButton cheesePizza;
 
     @FXML
@@ -91,33 +88,47 @@ public class CustomerDisplay implements Observer{
     public void update(Observable o, Object arg) {
 
         //check SQL database and update the javaFX
-        String a = OrderConnection.PizzaStatus(PizzaNumber);
+        String a = OrderConnection.PizzaStatus(1);
         statuslabel.setText(a);
     }
 
 
+    public static Boolean checkID(String asuID) throws IOException {
+
+        File file = new File(CustomerDisplay.class.getResource("data.txt").getFile());
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()){
+            if(scan.nextLine().equals(asuID)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @FXML
     void CheckOut(ActionEvent event) throws IOException {
         asuID = iD.getText();
-        System.out.println(asuID);
-        //store customerOrder in database
-        OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom,onion,olives,extraCheese,pickupTime,acceptedStatus,cookStatus); //test statement
-        OrderConnection.PrintDB(); //test
-        FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        if(checkID(asuID) == true) {
+            System.out.println(asuID);
+            pickupTime = pickTime.getText();
+            PizzaNumber = OrderConnection.getMax() + 1;
+            //store customerOrder in database
+            OrderConnection.insertOrder(PizzaNumber, asuID, pizzaType, mushroom, onion, olives, extraCheese, pickupTime, acceptedStatus, cookStatus);
+            FXMLLoader fxmlLoader = new FXMLLoader(CustomerDisplay.class.getResource("CustomerStatus.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        window.setScene(scene);
-        window.show();
-        System.out.println(PizzaNumber);
-        System.out.println(mushroom);
-        PizzaNumber++; //if the order is successful ++ the key
+            window.setScene(scene);
+            window.show();
+            System.out.println(PizzaNumber);
+        }
+        else iD.setText("Invalid ASUID");
     }
 
     @FXML
     void pickTime(ActionEvent event) {
-            
+
     }
 
     @FXML
@@ -135,6 +146,12 @@ public class CustomerDisplay implements Observer{
 
             mushroom = true;
         else mushroom = false;
+    }
+
+    @FXML
+    void orderStatus(ActionEvent event) {
+        String a = OrderConnection.PizzaStatus(PizzaNumber);
+        statuslabel.setText(a);
     }
 
     @FXML

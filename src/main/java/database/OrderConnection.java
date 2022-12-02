@@ -71,6 +71,19 @@ public class OrderConnection {
         }
     }
 
+    public static void updateAStatus(boolean acceptedStatus, int PizzaNumber){
+        final String SQL = "UPDATE PizzaOrder SET acceptedStatus = ? WHERE PizzaNumber =?";
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(SQL);) {
+            ps.setBoolean(1, acceptedStatus);
+            ps.setInt(2, PizzaNumber);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+    }
+
     public static void PrintDB() {
         String sql = "SELECT mushroom, onion, pizzatype FROM PizzaOrder"; //changable method to test stuff
 
@@ -92,14 +105,11 @@ public class OrderConnection {
         String sql = "SELECT pizzatype FROM PizzaOrder WHERE PizzaNumber =?" ; //changable method to test stuff
         try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
             int a = 5;
-            System.out.println("nice");
             ps.setInt(1, PizzaNumber);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getInt("pizzatype"));
                 a = rs.getInt("pizzatype");
             }
-            System.out.println(a);
             return a;
 
 
@@ -109,6 +119,26 @@ public class OrderConnection {
             System.err.println(e.getMessage());
         }
         return 5;
+    }
+
+    public static String PizzaTime(int PizzaNumber) {
+        String sql = "SELECT pickuptime FROM PizzaOrder WHERE PizzaNumber =?" ;
+        String a = " ";
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, PizzaNumber);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                a = rs.getString("pickuptime");
+            }
+            return a;
+
+
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return a;
     }
 
     public static String PizzaToppings(int PizzaNumber) {
@@ -165,6 +195,74 @@ public class OrderConnection {
             System.err.println(e.getMessage());
         }
         return "unlucky";
+    }
+
+    public static Boolean acceptedStatus(int PizzaNumber) {
+        String sql = "SELECT acceptedStatus FROM PizzaOrder WHERE PizzaNumber = ?" ;
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            Boolean m = false;
+            ps.setInt(1, PizzaNumber);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                m = rs.getBoolean("acceptedStatus");
+            }
+
+            return m;
+
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public static int getMax(){
+        String sql = "SELECT MAX(PizzaNumber) as max_pNum from PizzaOrder";
+        int max = 0;
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            // loop through the result set
+            if (rs.next()) {
+                max = rs.getInt("max_pNum");
+            }
+            return max;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return max;
+    }
+
+    public static int getMin(){
+        String sql = "SELECT MIN(PizzaNumber) as min_pNum from PizzaOrder";
+        int min = 0;
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            // loop through the result set
+            if (rs.next()) {
+                min = rs.getInt("min_pNum");
+            }
+            return min;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return min;
+    }
+
+    public static void DeleteRow(int PizzaNumber){
+        String sql = "DELETE FROM Table WHERE PizzaNumber = ?";
+        int max = 0;
+        try (Connection con = getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, PizzaNumber);
+            ps.executeUpdate();
+
+
+        } catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
     }
 
 
