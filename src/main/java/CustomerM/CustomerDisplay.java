@@ -23,7 +23,7 @@ import java.io.IOException;
 
 
 
-public class CustomerDisplay implements Observer{
+public class CustomerDisplay{
 
     private int PizzaNumber = 1;
     private int pizzaType; //0: pepperoni, 1: veggie, 2: cheese
@@ -83,14 +83,6 @@ public class CustomerDisplay implements Observer{
 
     @FXML
     private RadioButton veggiePizza;
-
-    @Override
-    public void update(Observable o, Object arg) {
-
-        //check SQL database and update the javaFX
-        String a = OrderConnection.PizzaStatus(1);
-        statuslabel.setText(a);
-    }
 
 
     public static Boolean checkID(String asuID) throws IOException {

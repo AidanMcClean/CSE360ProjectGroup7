@@ -18,7 +18,7 @@ import static database.OrderConnection.getConnection;
 
 
 @SuppressWarnings("deprecation")
-public class ChefDisplay extends Observable {
+public class ChefDisplay{
 
     private String watchedValue = " ";
 
@@ -35,12 +35,6 @@ public class ChefDisplay extends Observable {
 
     public String findStatus() {
         return watchedValue;
-    }
-
-    public void incre()
-    {
-        setChanged();
-        notifyObservers();
     }
 
     @FXML
