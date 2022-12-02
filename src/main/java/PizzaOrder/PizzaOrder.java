@@ -65,6 +65,10 @@ public class PizzaOrder {
         return asuEmail;
     }
 
+    public int getPizzaNumber() {
+        return PizzaNumber;
+    }
+
     public PizzaOrder(PizzaOrder object) {
         PizzaNumber = object.PizzaNumber;
         asuID = object.asuID;
