@@ -17,7 +17,7 @@ import static database.OrderConnection.getConnection;
 
 
 
-
+@SuppressWarnings("deprecation")
 public class ChefDisplay extends Observable {
 
     private String watchedValue = " ";
